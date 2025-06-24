@@ -1,0 +1,27 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Drakima";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="splash-container">
+    <div class="splash-content text-center">
+        <h1 class="splash-title animate__animated animate__fadeIn">Drakima</h1>
+        <p class="splash-subtitle animate__animated animate__fadeIn animate__delay-1s">Discover A Gynoid's Dream in a Neon Universe!</p>
+        <a href="/Home/Index" class="btn btn-primary btn-lg splash-button animate__animated animate__bounceIn animate__delay-2s">Initialize Systems</a>
+        <div class="splash-links animate__animated animate__fadeIn animate__delay-3s">
+            <a href="/Account/Register" class="text-neon">Sign Up</a> | <a href="/Account/Login" class="text-neon">Log In</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+    <script>
+        // Subtle glitch effect for title
+        document.querySelector('.splash-title').addEventListener('mouseover', function() {
+            this.classList.add('glitch');
+            setTimeout(() => this.classList.remove('glitch'), 500);
+        });
+    </script>
+}

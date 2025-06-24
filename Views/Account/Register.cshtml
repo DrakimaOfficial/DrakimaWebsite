@@ -1,0 +1,41 @@
+﻿@model DrakimaWebsite.Models.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register - Drakima";
+}
+
+<div class="cyberpunk-card">
+    <h1 class="text-center text-neon mb-4">Join Drakima</h1>
+    <form asp-action="Register" method="post" class="needs-validation">
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert" style="@(ViewData.ModelState.ErrorCount > 0 ? "" : "display:none;")"></div>
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control cyberpunk-input" placeholder="Enter your email" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-control cyberpunk-input" placeholder="Enter your password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ConfirmPassword" class="form-label"></label>
+            <input asp-for="ConfirmPassword" class="form-control cyberpunk-input" placeholder="Confirm your password" required />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="BirthDate" class="form-label"></label>
+            <input asp-for="BirthDate" type="date" class="form-control cyberpunk-input" required />
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary cyberpunk-button">Register</button>
+    </form>
+    <div class="splash-links mt-3 text-center">
+        <a asp-action="Login" class="text-neon">Already have an account? Log In</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

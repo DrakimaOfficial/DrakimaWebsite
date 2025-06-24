@@ -1,0 +1,44 @@
+﻿@model List<int>
+@{
+    ViewData["Title"] = "Table of Contents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="retro-container">
+    <section class="retro-section novel-overlay">
+        <h1 class="novel-heading">Table of Contents</h1>
+        <div class="novel-content">
+            <ul class="toc-list">
+                @foreach (var chapter in Model)
+                {
+                    <li>
+                        <a asp-controller="Novel" asp-action="Read" asp-route-chapter="@chapter" class="retro-button">
+                            Chapter @chapter: @(chapter == 1 ? "Awakening in the Light" : chapter == 2 ? "Shadows of the Arena" : "Untitled")
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+</div>
+
+<style>
+    .toc-list {
+        list-style: none;
+        padding: 0;
+    }
+    .toc-list li {
+        margin-bottom: 1rem;
+    }
+    .toc-list a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        color: #00ddeb;
+        text-shadow: 0 0 5px #00ddeb;
+        text-decoration: none;
+    }
+    .toc-list a:hover {
+        color: #b3f5f1;
+        text-decoration: underline;
+    }
+</style>

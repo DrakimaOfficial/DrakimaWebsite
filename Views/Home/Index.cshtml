@@ -1,0 +1,108 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Drakima - Home";
+}
+
+<div class="retro-container">
+    <!-- Carousel -->
+    <div id="drakimaCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/images/novel-cover.jpg" class="d-block w-100 retro-image" alt="A Gynoid's Dream Cover">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="retro-title">A Gynoid's Dream</h5>
+                    <p class="retro-text">Dive into a neon-lit saga of love and circuits.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/cyber-city.jpg" class="d-block w-100 retro-image" alt="Neon Cityscape">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="retro-title">Explore the Cyberpunk World</h5>
+                    <p class="retro-text">A retro-futuristic adventure awaits.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/character-art.jpg" class="d-block w-100 retro-image" alt="Character Art">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="retro-title">Meet the Gynoids</h5>
+                    <p class="retro-text">Discover the heart of the story.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#drakimaCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#drakimaCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Content Sections -->
+    <section class="retro-section animate__animated animate__fadeIn">
+        <h2 class="retro-title">About A Gynoid's Dream</h2>
+        <p class="retro-text">
+            In a neon-drenched future, *A Gynoid’s Dream* follows a sentient android navigating love, identity, and rebellion in a sprawling cyberpunk metropolis.
+            Blending 80s anime flair with mature, heartfelt storytelling, this light novel is a vibrant journey through a world of circuits and dreams.
+        </p>
+        <a href="/Novel/Read" class="btn btn-primary retro-button">Start Reading</a>
+    </section>
+
+    <section class="retro-section animate__animated animate__fadeIn animate__delay-1s">
+        <h2 class="retro-title">Latest Chapters</h2>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="retro-card">
+                    <h5 class="retro-card-title">Chapter 1: Neon Awakening</h5>
+                    <p class="retro-card-text">The gynoid awakens in a city of endless lights.</p>
+                    <a href="/Novel/Read?chapter=1" class="btn btn-secondary retro-button">Read Now</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="retro-card">
+                    <h5 class="retro-card-title">Chapter 2: Circuit Heart</h5>
+                    <p class="retro-card-text">A forbidden connection sparks in the shadows.</p>
+                    <a href="/Novel/Read?chapter=2" class="btn btn-secondary retro-button">Read Now</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="retro-card">
+                    <h5 class="retro-card-title">Chapter 3: Rebel Code</h5>
+                    <p class="retro-card-text">The fight for freedom begins.</p>
+                    <a href="/Novel/Read?chapter=3" class="btn btn-secondary retro-button">Read Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="retro-section animate__animated animate__fadeIn animate__delay-2s">
+        <h2 class="retro-title">Games</h2>
+        <p class="retro-text">
+            Step into interactive worlds inspired by our stories! We’re crafting video game adaptations using Unity and Unreal Engine, bringing *A Gynoid's Dream* and more to life.
+            Stay tuned for playable demos and release dates as our development team works to blend retro aesthetics with cutting-edge gameplay.
+        </p>
+        <a href="/Game" class="btn btn-primary retro-button">Explore Games</a>
+    </section>
+
+    <section class="retro-section animate__animated animate__fadeIn animate__delay-3s">
+        <h2 class="retro-title">Gynoids</h2>
+        <p class="retro-text">
+            Witness the real-world evolution of our fictional gynoids! From Akari’s conceptual designs to prototype assembly, follow our milestone-driven blog.
+            Experience the fusion of AI and robotics as we bring these characters into reality, with updates on hardware and software progress.
+        </p>
+        <a href="/Gynoid" class="btn btn-primary retro-button">View Progress</a>
+    </section>
+
+    <section class="retro-section animate__animated animate__fadeIn animate__delay-4s">
+        <h2 class="retro-title">Author's Note</h2>
+        <p class="retro-text">
+            Welcome to Drakima! *A Gynoid’s Dream* is my love letter to 80s anime like *Dirty Pair*, blending retro aesthetics with cyberpunk themes.
+            Expect vibrant characters, neon-soaked settings, and a touch of spice. Stay tuned for new chapters and updates!
+        </p>
+    </section>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+}

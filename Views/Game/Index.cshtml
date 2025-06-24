@@ -1,0 +1,48 @@
+﻿@model List<object> // Placeholder model, to be defined later
+@{
+    ViewData["Title"] = "Games";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="retro-container">
+    <section class="retro-section novel-overlay">
+        <h1 class="novel-heading">Games</h1>
+        <div class="novel-content">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="retro-card">
+                        <h5 class="retro-card-title">A Gynoid's Dream: Neon Quest</h5>
+                        <p class="retro-card-text">An action RPG based on the novel, in development with Unity.</p>
+                        <a href="#" class="btn btn-secondary retro-button disabled">Coming Soon</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="retro-card">
+                        <h5 class="retro-card-title">Spooky Shenanigans: Haunted Arena</h5>
+                        <p class="retro-card-text">A multiplayer battle game using Unreal Engine, in pre-production.</p>
+                        <a href="#" class="btn btn-secondary retro-button disabled">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+            <p class="retro-text">More games are in development! Check back for updates on releases and demos.</p>
+        </div>
+    </section>
+</div>
+
+<style>
+    .retro-card {
+        background-color: #1a1a1a;
+        padding: 1rem;
+        border-left: 4px solid #ff00ff;
+        text-align: center;
+    }
+
+    .retro-card-title {
+        color: #00ddeb;
+        text-shadow: 0 0 5px #00ddeb;
+    }
+
+    .retro-card-text {
+        color: #b3f5f1;
+    }
+</style>

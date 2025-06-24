@@ -1,0 +1,36 @@
+﻿@model DrakimaWebsite.Models.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Login - Drakima";
+}
+
+<div class="cyberpunk-card">
+    <h1 class="text-center text-neon mb-4">Log In to Drakima</h1>
+    <form asp-action="Login" method="post" class="needs-validation">
+        <input type="hidden" asp-for="ReturnUrl" value="@ViewData["ReturnUrl"]" />
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert" style="@(ViewData.ModelState.ErrorCount > 0 ? "" : "display:none;")"></div>
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control cyberpunk-input" placeholder="Enter your email" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-control cyberpunk-input" placeholder="Enter your password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <input asp-for="RememberMe" class="form-check-input" />
+            <label asp-for="RememberMe" class="form-check-label text-neon"></label>
+        </div>
+        <button type="submit" class="btn btn-primary cyberpunk-button">Log In</button>
+    </form>
+    <div class="splash-links mt-3 text-center">
+        <a asp-action="Register" class="text-neon">Need an account? Sign Up</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

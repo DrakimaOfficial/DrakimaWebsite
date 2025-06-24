@@ -1,0 +1,50 @@
+﻿@model List<DrakimaWebsite.Models.ViewModels.NovelViewModel>
+@{
+    ViewData["Title"] = "Novels";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="retro-container">
+    <section class="retro-section novel-overlay">
+        <h1 class="novel-heading">Novels</h1>
+        <div class="novel-content">
+            <div class="row">
+                @foreach (var novel in Model)
+                {
+                    <div class="col-md-6 mb-3">
+                        <div class="retro-card">
+                            <img src="@novel.ImagePath" class="card-img-top retro-image" alt="@novel.Title Cover" />
+                            <div class="card-body">
+                                <h5 class="retro-card-title">@novel.Title</h5>
+                                <p class="retro-card-text">A cyberpunk tale of love and rebellion.</p>
+                                <a asp-controller="Novel" asp-action="Summary" asp-route-id="@novel.SummaryPath" class="btn btn-primary retro-button">View Summary</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .retro-card {
+        background-color: #1a1a1a;
+        border-left: 4px solid #ff00ff;
+    }
+
+    .retro-card-title {
+        color: #00ddeb;
+        text-shadow: 0 0 5px #00ddeb;
+    }
+
+    .retro-card-text {
+        color: #b3f5f1;
+    }
+
+    .retro-image {
+        max-height: 200px;
+        object-fit: cover;
+        border-bottom: 2px solid #ff00ff;
+    }
+</style>

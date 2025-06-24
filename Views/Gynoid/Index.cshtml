@@ -1,0 +1,41 @@
+﻿@model List<object> // Placeholder model, to be defined later
+@{
+    ViewData["Title"] = "Gynoids";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="retro-container">
+    <section class="retro-section novel-overlay">
+        <h1 class="novel-heading">Gynoids</h1>
+        <div class="novel-content">
+            <h2 class="retro-title">Akari Development Blog</h2>
+            <div class="milestone">
+                <h3 class="retro-subtitle">Milestone 1: Concept Design</h3>
+                <p class="retro-text">Completed on June 1, 2025. Initial sketches and AI-driven design for Akari finalized.</p>
+            </div>
+            <div class="milestone">
+                <h3 class="retro-subtitle">Milestone 2: Prototype Assembly</h3>
+                <p class="retro-text">In progress. Hardware components are being sourced, targeting completion by August 2025.</p>
+            </div>
+            <div class="milestone">
+                <h3 class="retro-subtitle">Milestone 3: AI Integration</h3>
+                <p class="retro-text">Planned for Q4 2025. Software development to bring Akari to life is underway.</p>
+            </div>
+            <p class="retro-text">Follow our journey as we transform fiction into reality!</p>
+        </div>
+    </section>
+</div>
+
+<style>
+    .milestone {
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background-color: #1a1a1a;
+        border-left: 4px solid #ff00ff;
+    }
+
+    .retro-subtitle {
+        color: #00ddeb;
+        text-shadow: 0 0 5px #00ddeb;
+    }
+</style>

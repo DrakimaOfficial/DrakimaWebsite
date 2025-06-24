@@ -1,0 +1,395 @@
+﻿@model DrakimaWebsite.Models.ViewModels.ChapterViewModel
+@{
+    ViewData["Title"] = Model?.Title ?? "Chapter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="retro-container">
+    <section class="retro-section novel-overlay">
+        <div class="control-panel">
+            <button id="load-chapter-btn" class="retro-button">Load Chapter</button>
+            <button id="stream-chapter-btn" class="retro-button" style="display: none;">Stream Chapter</button>
+            <button id="music-toggle-btn" class="retro-button" disabled>Toggle Music</button>
+        </div>
+        <div class="novel-content">
+            @if (Model != null && Model.Sections != null && Model.ImagePaths != null)
+            {
+                @for (int i = 0; i < Model.Sections.Count; i++)
+                {
+                    <div class="novel-text-section">
+                        @if (Model.ImagePaths[i] != null && !string.IsNullOrEmpty(Model.ImagePaths[i]))
+                        {
+                            <img src="@Model.ImagePaths[i]" class="novel-image" alt="Chapter @Model.ChapterNumber Section @(i)" style="display: none;" />
+                        }
+                        @if (Model.Sections[i] != null && Model.Sections[i].Contains("<img"))
+                        {
+                            // Extract <img> tag and text content
+                            string sectionContent = Model.Sections[i] ?? "";
+                            string imgTag = "";
+                            string textContent = sectionContent;
+                            var imgMatch = System.Text.RegularExpressions.Regex.Match(sectionContent, @"<img\s+[^>]+>");
+                            if (imgMatch.Success)
+                            {
+                                imgTag = imgMatch.Value;
+                                textContent = System.Text.RegularExpressions.Regex.Replace(sectionContent, @"<img\s+[^>]+>", "").Trim();
+                            }
+                            @if (!string.IsNullOrEmpty(imgTag))
+                            {
+                                <div class="novel-image-section" data-original-content="@Html.Raw(imgTag).ToString()">
+                                    @Html.Raw(imgTag)
+                                </div>
+                            }
+                            <div class="novel-text" data-original-content="@(textContent != "" ? Html.Raw(textContent).ToString() : "<p></p>")">
+                                @* Placeholder for Typed.js or full content *@
+                                @* Future interactivity: Add <span data-interactive="beep">[AGS Boot-Time Status...</span> for hover/click triggers *@
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="novel-text" data-original-content="@(Model.Sections[i] != null ? Html.Raw(Model.Sections[i]).ToString() : "<p></p>")">
+                                @* Placeholder for Typed.js or full content *@
+                                @* Future interactivity: Add <span data-interactive="hum">She opened her eyes...</span> for hover/click triggers *@
+                            </div>
+                        }
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No content available.</p>
+            }
+        </div>
+        <div class="novel-navigation d-flex justify-content-between align-items-center">
+            <div class="nav-left">
+                @if (Model != null && Model.ChapterNumber > 1)
+                {
+                    <a asp-action="Read" asp-route-novelId="@ViewBag.NovelId" asp-route-chapter="@(Model.ChapterNumber - 1)" class="btn retro-button">Previous Chapter</a>
+                }
+                else
+                {
+                    <span class="btn retro-button disabled">Previous Chapter</span>
+                }
+            </div>
+            <div class="nav-center">
+                <a asp-controller="Novel" asp-action="Summary" asp-route-id="@ViewBag.NovelId" class="btn retro-button">TOC</a>
+            </div>
+            <div class="nav-right">
+                @if (ViewBag.HasNextChapter ?? false)
+                {
+                    <a asp-action="Read" asp-route-novelId="@ViewBag.NovelId" asp-route-chapter="@(Model?.ChapterNumber + 1 ?? 2)" class="btn retro-button">Next Chapter</a>
+                }
+                else
+                {
+                    <span class="btn retro-button disabled">Next Chapter</span>
+                }
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <audio id="background-music" loop>
+        <source src="/sounds/cyberpunk-loop.mp3" type="audio/mpeg">
+    </audio>
+    <!-- Commented out sound effects for future interactivity
+    <audio id="beep-effect">
+        <source src="/sounds/beep.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="hum-effect">
+        <source src="/sounds/hum.mp3" type="audio/mpeg">
+    </audio>
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Background music with toggle
+            const bgMusic = document.getElementById('background-music');
+            bgMusic.volume = 0.3;
+            let isPlaying = false;
+            const musicToggleBtn = document.getElementById('music-toggle-btn');
+
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicToggleBtn.disabled = false;
+                musicToggleBtn.textContent = 'Pause Music';
+                console.log('Background music started on load');
+            }).catch(error => {
+                console.log("Autoplay blocked:", error);
+                musicToggleBtn.disabled = false;
+                musicToggleBtn.textContent = 'Play Music';
+            });
+
+            musicToggleBtn.addEventListener('click', () => {
+                if (!isPlaying) {
+                    bgMusic.play().then(() => {
+                        isPlaying = true;
+                        musicToggleBtn.textContent = 'Pause Music';
+                    }).catch(error => console.log("Audio play error:", error));
+                } else {
+                    bgMusic.pause();
+                    isPlaying = false;
+                    musicToggleBtn.textContent = 'Play Music';
+                }
+            });
+
+            // Commented out Intersection Observer for sound effects
+            /*
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const text = entry.target;
+                        const content = text.textContent || text.innerText;
+                        if (content.includes('[AGS Boot-Time Status') && !text.dataset.soundPlayed) {
+                            console.log('Playing beep sound for [AGS Boot-Time Status]');
+                            document.getElementById('beep-effect').play().catch(error => console.log('Beep play error:', error));
+                            text.dataset.soundPlayed = 'true';
+                        }
+                        if (content.includes('She opened her eyes') && !text.dataset.soundPlayedHum) {
+                            console.log('Playing hum sound for "She opened her eyes"');
+                            document.getElementById('hum-effect').play().catch(error => console.log('Hum play error:', error));
+                            text.dataset.soundPlayedHum = 'true';
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.novel-text').forEach(text => observer.observe(text));
+            */
+
+            // Sequential text and image animation
+            const textSections = document.querySelectorAll('.novel-text-section');
+            let typedInstances = [];
+            let currentIndex = 0;
+
+            function animateSection(index) {
+                console.log(`Animating section ${index}`);
+                if (index < textSections.length) {
+                    const section = textSections[index];
+                    const text = section.querySelector('.novel-text');
+                    const imageSection = section.querySelector('.novel-image-section');
+                    const image = section.querySelector('.novel-image');
+                    const originalContent = text.dataset.originalContent;
+
+                    // Show images before streaming text
+                    if (imageSection) {
+                        imageSection.style.visibility = 'visible';
+                        const img = imageSection.querySelector('img');
+                        if (img) {
+                            img.style.display = 'block';
+                            img.classList.add('animate__fadeIn');
+                        }
+                    }
+                    if (image) {
+                        image.style.display = 'block';
+                        image.classList.add('animate__fadeIn');
+                    }
+
+                    if (originalContent && originalContent !== '<p></p>') {
+                        text.style.visibility = 'visible';
+                        text.style.display = 'block';
+                        const typed = new Typed(text, {
+                            strings: [originalContent],
+                            typeSpeed: 15,
+                            showCursor: true,
+                            cursorChar: '_',
+                            onComplete: (self) => {
+                                console.log(`Completed streaming section ${index}`);
+                                typedInstances = typedInstances.filter(inst => inst !== self);
+                                currentIndex++;
+                                animateSection(currentIndex);
+                            }
+                        });
+                        typedInstances.push(typed);
+                    } else {
+                        console.log(`Skipping empty section ${index}`);
+                        currentIndex++;
+                        animateSection(currentIndex);
+                    }
+                } else if (typedInstances.length === 0) {
+                    console.log('All sections streamed');
+                    document.querySelectorAll('.choice-options').forEach(options => {
+                        options.style.opacity = '1';
+                    });
+                }
+            }
+
+            // Stream Chapter button
+            const streamChapterBtn = document.getElementById('stream-chapter-btn');
+            streamChapterBtn.addEventListener('click', () => {
+                console.log('Stream Chapter clicked');
+                typedInstances.forEach(inst => inst.destroy());
+                typedInstances = [];
+                currentIndex = 0;
+                textSections.forEach(section => {
+                    const text = section.querySelector('.novel-text');
+                    const imageSection = section.querySelector('.novel-image-section');
+                    const image = section.querySelector('.novel-image');
+                    text.innerHTML = '';
+                    text.style.visibility = 'hidden';
+                    text.style.display = 'block';
+                    if (imageSection) {
+                        imageSection.style.visibility = 'hidden';
+                        const img = imageSection.querySelector('img');
+                        if (img) {
+                            img.style.display = 'none';
+                            img.classList.remove('animate__fadeIn');
+                        }
+                    }
+                    if (image) {
+                        image.style.display = 'none';
+                        image.classList.remove('animate__fadeIn');
+                    }
+                    // Reset sound flags for future use
+                    // text.dataset.soundPlayed = '';
+                    // text.dataset.soundPlayedHum = '';
+                });
+                animateSection(0);
+            });
+
+            // Load Chapter button
+            const loadChapterBtn = document.getElementById('load-chapter-btn');
+            loadChapterBtn.addEventListener('click', () => {
+                console.log('Load Chapter clicked');
+                typedInstances.forEach(inst => inst.destroy());
+                typedInstances = [];
+
+                textSections.forEach(section => {
+                    const text = section.querySelector('.novel-text');
+                    const imageSection = section.querySelector('.novel-image-section');
+                    const image = section.querySelector('.novel-image');
+                    const originalContent = text.dataset.originalContent;
+
+                    if (imageSection) {
+                        imageSection.style.visibility = 'visible';
+                        const img = imageSection.querySelector('img');
+                        if (img) {
+                            img.style.display = 'block';
+                            img.classList.add('animate__fadeIn');
+                        }
+                    }
+                    if (image) {
+                        image.style.display = 'block';
+                        image.classList.add('animate__fadeIn');
+                    }
+                    if (originalContent && originalContent !== '<p></p>') {
+                        text.style.visibility = 'visible';
+                        text.style.display = 'block';
+                        text.innerHTML = originalContent;
+                    }
+                    // Reset sound flags for future use
+                    // text.dataset.soundPlayed = '';
+                    // text.dataset.soundPlayedHum = '';
+                });
+
+                document.querySelectorAll('.choice-options').forEach(options => {
+                    options.style.opacity = '1';
+                });
+            });
+
+            // Choice handling
+            const choices = document.querySelectorAll('.choice-btn');
+            choices.forEach(choice => {
+                choice.addEventListener('click', function () {
+                    console.log(`Choice clicked: ${this.textContent}`);
+                    const section = this.closest('.novel-text-section').querySelector('.novel-text');
+                    const newContent = document.createElement('p');
+                    if (this.textContent.includes('Kai')) {
+                        newContent.textContent = 'Kai stammers more, his crush on Yumi deepening.';
+                    } else if (this.textContent.includes('Yumi')) {
+                        newContent.textContent = 'Yumi reflects on her secret hopes for Akari.';
+                    }
+                    section.appendChild(newContent);
+                    this.parentElement.style.display = 'none';
+                });
+            });
+
+            // Trigger streaming on page load
+            streamChapterBtn.click();
+        });
+    </script>
+    <style>
+        audio {
+            display: none;
+        }
+
+        .novel-text.animation-complete .choice-options {
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        .novel-text .choice-options {
+            opacity: 0;
+        }
+
+        .novel-image, .novel-image-section img {
+            max-width: 100%;
+            margin-bottom: 1rem;
+            border: 2px solid #ff00ff;
+            border-radius: 5px;
+        }
+
+        .novel-navigation .disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .novel-navigation {
+            width: 100%;
+        }
+
+        .nav-left {
+            margin-right: auto;
+        }
+
+        .nav-center {
+            margin: 0 auto;
+            flex: 0 0 auto;
+        }
+
+        .nav-right {
+            margin-left: auto;
+        }
+
+        .animate__fadeIn {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @@keyframes fadeIn {
+            from
+
+        {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+
+        }
+
+        .control-panel {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .retro-button {
+            padding: 5px 15px;
+            background: #ff00ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+            .retro-button:disabled {
+                background: #800080;
+                cursor: not-allowed;
+            }
+
+        /* Prevent unintended scrolling */
+        html, body {
+            overflow-y: auto;
+        }
+    </style>
+}

@@ -1,0 +1,83 @@
+﻿@model List<int>
+@{
+    ViewData["Title"] = "A Gynoid's Dream - Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="retro-container">
+    <section class="retro-section novel-overlay">
+        <h1 class="novel-heading">@ViewBag.NovelTitle</h1>
+        <div class="novel-content">
+            <div class="placeholder-box">
+                <img src="@ViewBag.ImagePath" class="novel-cover" alt="@ViewBag.NovelTitle Cover" />
+            </div>
+            <h2 class="retro-title">Story Synopsis</h2>
+            <p class="retro-text">
+                @ViewBag.Description
+            </p>
+            <h2 class="retro-title">Table of Contents</h2>
+            @if (Model != null && Model.Any() && ViewBag.ChapterTitles != null)
+            {
+                <ul class="toc-list">
+                    @foreach (var chapter in Model)
+                    {
+                        <li>
+                            <a asp-controller="Novel" asp-action="Read" asp-route-chapter="@chapter" class="retro-button">
+                                @if (ViewBag.ChapterTitles.ContainsKey(chapter))
+                                {
+                                    @:Chapter @chapter: @ViewBag.ChapterTitles[chapter]
+                                }
+                                else
+                                {
+                                    @:Chapter @chapter (Title unavailable)
+                                }
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="retro-text">No chapters available for this novel.</p>
+            }
+        </div>
+    </section>
+</div>
+
+<style>
+    .toc-list {
+        list-style: none;
+        padding: 0;
+    }
+
+        .toc-list li {
+            margin-bottom: 1rem;
+        }
+
+        .toc-list a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            color: #00ddeb;
+            text-shadow: 0 0 5px #00ddeb;
+            text-decoration: none;
+        }
+
+            .toc-list a:hover {
+                color: #b3f5f1;
+                text-decoration: underline;
+            }
+
+    .placeholder-box {
+        background-color: #1a1a1a;
+        border: 2px dashed #ff00ff;
+        padding: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .novel-cover {
+        max-width: 200px;
+        border: 2px solid #ff00ff;
+        border-radius: 5px;
+    }
+</style>

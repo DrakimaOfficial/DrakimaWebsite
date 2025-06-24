@@ -1,0 +1,362 @@
+/* Retro-cyberpunk theme inspired by Dirty Pair */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+    color: #e0e0e0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Splash Screen Styles */
+.splash-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff007a, #00ddeb, #ff00ff);
+    position: relative;
+    overflow: hidden;
+}
+
+    .splash-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/cyberpunk-city.jpg') no-repeat center center/cover;
+        opacity: 0.2;
+        z-index: 1;
+    }
+
+.splash-content {
+    z-index: 2;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+}
+
+.splash-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3.5rem;
+    color: #ff007a;
+    text-shadow: 0 0 5px #ff007a, 0 0 5px #ff00ff;
+    margin-bottom: 1rem;
+}
+
+    .splash-title.glitch {
+        animation: glitch 0.3s linear infinite;
+    }
+
+.splash-subtitle {
+    font-size: 1.5rem;
+    color: #00ddeb;
+    text-shadow: 0 0 5px #00ddeb;
+    margin-bottom: 2rem;
+}
+
+.splash-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    background: #ff007a;
+    border-color: #ff007a;
+    transition: all 0.3s ease;
+}
+
+    .splash-button:hover {
+        transform: scale(1.1);
+        background: #e6006b;
+        border-color: #e6006b;
+        box-shadow: 0 0 15px #ff00ff;
+    }
+
+.splash-links .text-neon {
+    color: #00ddeb;
+    text-decoration: none;
+    text-shadow: 0 0 5px #00ddeb;
+}
+
+    .splash-links .text-neon:hover {
+        text-decoration: underline;
+        color: #b3f5f1;
+    }
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(0, 0, 0, 0.8) !important;
+    border-bottom: 2px solid #ff00ff;
+}
+
+.navbar-brand.neon-text {
+    font-family: 'Press Start 2P', cursive;
+    color: #ff007a !important;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.nav-link.text-neon {
+    color: #00ddeb !important;
+    text-shadow: 0 0 5px #00ddeb;
+}
+
+    .nav-link.text-neon:hover {
+        color: #b3f5f1 !important;
+    }
+
+/* Footer Styles */
+.footer {
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 2px solid #ff00ff;
+    color: #b3f5f1;
+    text-shadow: 0 0 2px #00ddeb;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+    .footer a.text-neon {
+        color: #00ddeb;
+        text-decoration: none;
+        text-shadow: 0 0 2px #00ddeb;
+    }
+
+        .footer a.text-neon:hover {
+            color: #b3f5f1;
+            text-decoration: underline;
+        }
+
+/* Account Page Styles */
+.cyberpunk-card {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #ff00ff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+    padding: 2rem;
+}
+
+.cyberpunk-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ff007a;
+    color: #e0e0e0;
+}
+
+    .cyberpunk-input:focus {
+        border-color: #00ddeb;
+        box-shadow: 0 0 10px #00ddeb;
+    }
+
+.cyberpunk-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    background: #ff007a;
+    border-color: #ff007a;
+    transition: all 0.3s ease;
+}
+
+    .cyberpunk-button:hover {
+        background: #e6006b;
+        border-color: #e6006b;
+        box-shadow: 0 0 10px #ff00ff;
+    }
+
+.form-label {
+    color: #00ddeb !important;
+    text-shadow: 0 0 5px #00ddeb;
+    font-weight: 700;
+}
+
+    .form-label:hover {
+        color: #b3f5f1 !important;
+    }
+
+.alert {
+    background: rgba(255, 0, 255, 0.2);
+    border-color: #ff00ff;
+    color: #e0e0e0;
+}
+
+/* Landing Page and Content Styles */
+.retro-container {
+    padding: 2rem;
+}
+
+.retro-section {
+    margin-bottom: 2rem;
+}
+
+.retro-title {
+    font-family: 'Press Start 2P', cursive;
+    color: #ff007a;
+    text-shadow: 0 0 5px #ff00ff;
+    margin-bottom: 1rem;
+}
+
+.retro-text {
+    color: #00ddeb;
+    text-shadow: 0 0 5px #00ddeb;
+    font-size: 1.1rem;
+}
+
+.retro-button {
+    background: #ff007a;
+    border-color: #ff007a;
+    transition: all 0.3s ease;
+}
+
+    .retro-button:hover {
+        background: #e6006b;
+        border-color: #e6006b;
+        box-shadow: 0 0 10px #ff00ff;
+    }
+
+.retro-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #ff00ff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+    padding: 1rem;
+}
+
+.retro-card-title {
+    color: #ff007a;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.retro-card-text {
+    color: #00ddeb;
+    text-shadow: 0 0 5px #00ddeb;
+}
+
+.carousel-inner {
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+.retro-image {
+    filter: contrast(110%) saturate(120%);
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+/* Novel Viewer Styles */
+.novel-heading {
+    font-family: 'Press Start 2P', cursive;
+    color: #ff007a;
+    text-shadow: 0 0 5px #ff00ff;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.novel-content {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ff00ff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+    position: relative;
+}
+
+.novel-text {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ddeb;
+    text-shadow: 0 0 5px #00ddeb;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+    .novel-text blockquote {
+        background: rgba(255, 0, 122, 0.2);
+        border-left: 4px solid #ff007a;
+        border-right: 4px solid #ff007a;
+        padding: 1rem;
+        margin: 1rem 0;
+        color: #b3f5f1;
+        text-shadow: 0 0 5px #00ddeb;
+        position: relative;
+        transition: all 0.3s ease;
+        border-radius: 5px;
+    }
+
+        .novel-text blockquote:hover {
+            border-left-color: #00ddeb;
+            border-right-color: #00ddeb;
+            box-shadow: 0 0 10px #00ddeb;
+        }
+
+.novel-image {
+    max-width: 100%;
+    border: 2px solid #ff00ff;
+    border-radius: 5px;
+    margin: 1rem 0;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    filter: contrast(110%) saturate(120%);
+}
+
+.novel-navigation {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.novel-overlay {
+    position: relative;
+}
+
+    .novel-overlay::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient( rgba(255, 255, 255, 0.02) 2px, transparent 2px );
+        background-size: 100% 4px;
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* Add to site.css */
+/*audio {
+    display: none;
+}*/
