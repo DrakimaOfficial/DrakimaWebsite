@@ -24,7 +24,11 @@
         </div>
         <div class="mb-3">
             <label asp-for="BirthDate" class="form-label"></label>
-            <input asp-for="BirthDate" type="date" class="form-control cyberpunk-input" required />
+            <div class="input-group">
+                <input asp-for="BirthDate" type="date" class="form-control cyberpunk-input birthdate-picker" max="2007-06-27" min="1900-01-01" required />
+                <input asp-for="BirthDate" type="text" class="form-control cyberpunk-input birthdate-text" placeholder="MM/DD/YYYY" style="display:none;" />
+                <button type="button" class="btn btn-secondary cyberpunk-button toggle-birthdate">Toggle Input</button>
+            </div>
             <span asp-validation-for="BirthDate" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary cyberpunk-button">Register</button>
@@ -38,4 +42,90 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Toggle between date picker and text input
+            $('.toggle-birthdate').click(function () {
+                var picker = $('.birthdate-picker');
+                var text = $('.birthdate-text');
+                if (picker.is(':visible')) {
+                    picker.hide();
+                    text.show().focus();
+                    $(this).text('Use Calendar');
+                } else {
+                    text.hide();
+                    picker.show().focus();
+                    $(this).text('Toggle Input');
+                }
+            });
+
+            // Auto-format text input to MM/DD/YYYY
+            $('.birthdate-text').on('input', function () {
+                var input = $(this).val().replace(/[^0-9]/g, ''); // Remove non-digits
+                var formatted = '';
+                if (input.length > 0) {
+                    formatted = input.substring(0, 2); // MM
+                    if (input.length >= 3) {
+                        formatted += '/' + input.substring(2, 4); // MM/DD
+                    }
+                    if (input.length >= 5) {
+                        formatted += '/' + input.substring(4, 8); // MM/DD/YYYY
+                    }
+                }
+                $(this).val(formatted);
+
+                // Sync to date picker (convert to YYYY-MM-DD)
+                var errorSpan = $(this).closest('.mb-3').find('.text-danger');
+                if (input.length === 8) {
+                    var month = input.substring(0, 2);
+                    var day = input.substring(2, 4);
+                    var year = input.substring(4, 8);
+                    var dateVal = `${year}-${month}-${day}`;
+                    // Validate date format
+                    if (/^\d{4}-\d{2}-\d{2}$/.test(dateVal) && !isNaN(new Date(dateVal))) {
+                        $('.birthdate-picker').val(dateVal);
+                        errorSpan.text('');
+                    } else {
+                        $('.birthdate-picker').val('');
+                        errorSpan.text('Invalid date format.');
+                    }
+                } else {
+                    $('.birthdate-picker').val('');
+                    errorSpan.text(input.length > 0 ? 'Please enter a complete date (MM/DD/YYYY).' : '');
+                }
+            });
+
+            // Client-side validation for 18+ age
+            $('.birthdate-picker, .birthdate-text').on('change input', function () {
+                var input = $(this).hasClass('birthdate-text') ? $('.birthdate-picker').val() : $(this).val();
+                var selectedDate = new Date(input);
+                var maxDate = new Date('2007-06-27');
+                var errorSpan = $(this).closest('.mb-3').find('.text-danger');
+                if (input && selectedDate > maxDate) {
+                    errorSpan.text('You must be at least 18 years old.');
+                } else if (input && !isNaN(selectedDate)) {
+                    errorSpan.text('');
+                }
+            });
+
+            // Ensure form submits the date picker's value
+            $('form.needs-validation').on('submit', function () {
+                var textInput = $('.birthdate-text');
+                var picker = $('.birthdate-picker');
+                if (textInput.is(':visible') && textInput.val()) {
+                    var input = textInput.val().replace(/[^0-9]/g, '');
+                    if (input.length === 8) {
+                        var month = input.substring(0, 2);
+                        var day = input.substring(2, 4);
+                        var year = input.substring(4, 8);
+                        var dateVal = `${year}-${month}-${day}`;
+                        if (/^\d{4}-\d{2}-\d{2}$/.test(dateVal) && !isNaN(new Date(dateVal))) {
+                            picker.val(dateVal);
+                            textInput.prop('disabled', true); // Disable text input to prioritize date picker
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 }

@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\views\\home\\terms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|solutionrelative:views\\home\\terms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\views\\novel\\read.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|solutionrelative:views\\novel\\read.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\controllers\\novelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|solutionrelative:controllers\\novelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\models\\viewmodels\\chapterviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|solutionrelative:models\\viewmodels\\chapterviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F2AF797-6B3F-4254-850F-2E603CD8D1D6}|DrakimaWebsite.csproj|c:\\users\\drakima\\projects\\webdev\\drakimawebsite\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -26,56 +42,105 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Read.cshtml",
-              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Novel\\Read.cshtml",
-              "RelativeDocumentMoniker": "Views\\Novel\\Read.cshtml",
-              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Novel\\Read.cshtml",
-              "RelativeToolTip": "Views\\Novel\\Read.cshtml",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAGAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-22T22:20:09.114Z",
+              "DocumentIndex": 1,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAswFAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T19:30:54.264Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NovelController.cs",
-              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Controllers\\NovelController.cs",
-              "RelativeDocumentMoniker": "Controllers\\NovelController.cs",
-              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Controllers\\NovelController.cs",
-              "RelativeToolTip": "Controllers\\NovelController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAowDQAAAAVAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAuwD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T19:15:51.486Z"
+              "WhenOpened": "2025-06-27T19:28:51.163Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChapterViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Models\\ViewModels\\ChapterViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\ViewModels\\ChapterViewModel.cs",
-              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Models\\ViewModels\\ChapterViewModel.cs",
-              "RelativeToolTip": "Models\\ViewModels\\ChapterViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T00:38:59.248Z"
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAAAiwDcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-27T19:28:28.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-27T19:21:08.951Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-27T19:01:26.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Terms.cshtml",
+              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Home\\Terms.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Terms.cshtml",
+              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Home\\Terms.cshtml",
+              "RelativeToolTip": "Views\\Home\\Terms.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-27T19:01:16.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\wwwroot\\css\\site.css",
               "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AgIAAEMBAAAAAAAAAAAowGABAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAH8BAAAAAAAAAAAYwJ0BAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-22T22:20:38.055Z"
+              "WhenOpened": "2025-06-27T18:53:23.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Read.cshtml",
+              "DocumentMoniker": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Novel\\Read.cshtml",
+              "RelativeDocumentMoniker": "Views\\Novel\\Read.cshtml",
+              "ToolTip": "C:\\Users\\Drakima\\Projects\\WebDev\\DrakimaWebsite\\Views\\Novel\\Read.cshtml",
+              "RelativeToolTip": "Views\\Novel\\Read.cshtml",
+              "ViewState": "AgIAAFQBAAAAAAAAAAAcwGYBAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-27T18:38:36.807Z"
             }
           ]
         }

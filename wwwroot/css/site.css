@@ -19,7 +19,7 @@ body {
     align-items: center;
     background: linear-gradient(135deg, #ff007a, #00ddeb, #ff00ff);
     position: relative;
-    overflow: hidden;
+    overflow: auto; /* Allow scrolling if content overflows */
 }
 
     .splash-container::before {
@@ -36,34 +36,36 @@ body {
 
 .splash-content {
     z-index: 2;
-    padding: 2rem;
+    padding: 2rem; /* Restored original padding for PC */
     background: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+    max-width: 90%; /* Prevent content from hitting screen edges */
+    text-align: center;
 }
 
 .splash-title {
     font-family: 'Press Start 2P', cursive;
-    font-size: 3.5rem;
+    font-size: 3.5rem; /* Restored original size for PC */
     color: #ff007a;
     text-shadow: 0 0 5px #ff007a, 0 0 5px #ff00ff;
     margin-bottom: 1rem;
 }
 
-    .splash-title.glitch {
-        animation: glitch 0.3s linear infinite;
+    .splash-title.glow {
+        animation: glow 0.5s ease-in-out;
     }
 
 .splash-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Restored original size for PC */
     color: #00ddeb;
     text-shadow: 0 0 5px #00ddeb;
     margin-bottom: 2rem;
 }
 
 .splash-button {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 1rem 2rem; /* Restored original padding */
+    font-size: 1.2rem; /* Restored original size */
     border-radius: 25px;
     background: #ff007a;
     border-color: #ff007a;
@@ -77,16 +79,60 @@ body {
         box-shadow: 0 0 15px #ff00ff;
     }
 
-.splash-links .text-neon {
-    color: #00ddeb;
-    text-decoration: none;
-    text-shadow: 0 0 5px #00ddeb;
+.splash-links {
+    font-size: 1rem; /* Slightly larger for readability */
 }
 
-    .splash-links .text-neon:hover {
-        text-decoration: underline;
-        color: #b3f5f1;
+    .splash-links .text-neon {
+        color: #00ddeb;
+        text-decoration: none;
+        text-shadow: 0 0 5px #00ddeb;
     }
+
+        .splash-links .text-neon:hover {
+            text-decoration: underline;
+            color: #b3f5f1;
+        }
+
+/* Media query for portrait mode and smaller screens */
+@media (max-width: 768px) or (orientation: portrait) {
+    .splash-content {
+        padding: 1rem; /* Reduced for smaller screens */
+        max-width: 95%;
+    }
+
+    .splash-title {
+        font-size: calc(1.5rem + 2.5vw); /* Responsive for portrait */
+    }
+
+    .splash-subtitle {
+        font-size: calc(0.8rem + 1.2vw);
+    }
+
+    .splash-button {
+        padding: 0.5rem 1rem;
+        font-size: calc(0.7rem + 1vw);
+    }
+
+    .splash-links {
+        font-size: calc(0.7rem + 0.8vw);
+    }
+}
+
+/* Glow animation for splash-title */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #00ddeb, 0 0 5px #00ddeb;
+    }
+
+    50% {
+        text-shadow: 0 0 15px #00ddeb, 0 0 20px #00ddeb, 0 0 25px #00ddeb;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #00ddeb, 0 0 5px #00ddeb;
+    }
+}
 
 /* Navbar Styles */
 .navbar {
@@ -330,33 +376,80 @@ body {
         opacity: 0.3;
     }
 
-@keyframes glitch {
-    0% {
-        transform: translate(0);
-    }
+/* Removed glitch animation, replaced with glow */
 
-    20% {
-        transform: translate(-2px, 2px);
-    }
-
-    40% {
-        transform: translate(-2px, -2px);
-    }
-
-    60% {
-        transform: translate(2px, 2px);
-    }
-
-    80% {
-        transform: translate(2px, -2px);
-    }
-
-    100% {
-        transform: translate(0);
-    }
+/* Styles for birthdate toggle button */
+.toggle-birthdate {
+    background: #ff007a;
+    border-color: #ff007a;
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
 }
 
-/* Add to site.css */
-/*audio {
-    display: none;
-}*/
+    .toggle-birthdate:hover {
+        background: #e6006b;
+        border-color: #e6006b;
+        box-shadow: 0 0 10px #ff00ff;
+    }
+
+/* Replace the existing portrait mode media query under "Novel Viewer Styles" or append at the end */
+
+/* Responsive adjustments for portrait mode and smaller screens */
+@media (max-width: 768px) or (orientation: portrait) {
+    .novel-heading {
+        font-size: calc(1.5rem + 1vw); /* Reduced from 2.5rem */
+    }
+
+    .novel-text {
+        font-size: calc(0.9rem + 0.5vw); /* Reduced from 1.2rem */
+        line-height: 1.4; /* Tighter line height */
+        margin-bottom: 1rem;
+        visibility: visible; /* Ensure text is visible for Typed.js */
+    }
+
+        .novel-text blockquote {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+    .novel-image, .novel-image-section img {
+        max-width: 80%; /* Smaller images */
+        margin: 0.5rem auto;
+        display: block;
+        visibility: visible; /* Ensure images are visible when shown */
+    }
+
+    .control-panel {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .retro-button {
+        padding: 0.3rem 0.8rem;
+        font-size: calc(0.7rem + 0.5vw);
+        margin: 0.2rem;
+    }
+
+    .novel-navigation {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .nav-left, .nav-center, .nav-right {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .novel-navigation .retro-button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
